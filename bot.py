@@ -23,4 +23,7 @@ class HealthHandler(BaseHTTPRequestHandler):
 
 server = HTTPServer(("0.0.0.0", int(os.environ.get("PORT", 10000))), HealthHandler)
 Thread(target=server.serve_forever, daemon=True).start()
+
+import asyncio
+asyncio.set_event_loop(asyncio.new_event_loop())
 app.run_polling()
